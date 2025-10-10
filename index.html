@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <form class="details" method="post">
+        <label for="" style="display: block; margin-bottom: 10px;"> Name:
+            <input type="text" name="Name" value="daniel">
+        </label>
+
+        <label style="display: block; margin-bottom: 10px;" for=""> Age:
+            <input type="text" name="Age">
+        </label>
+
+        <label for="" style="display: block;"> Institution:
+            <input type="text" name="Institution" class="institution">
+        </label>
+
+        <input type="file" name="image">
+
+        <button style="width: 80px; height: 50px; margin-top: 20px; margin-left: 20px;" type="submit">Submit</button>
+    </form>
+
+    <script>
+        const form = document.querySelector('.details')
+        form.addEventListener('submit', (e)=>{
+            e.preventDefault()
+
+            const fd = new FormData(form)
+
+            // const urlEncoded = new URLSearchParams(fd).toString();
+
+            fetch('http://localhost:3000/upload', {
+                method: 'POST',
+                body: fd,
+                // headers: {
+                //     'Content-type' : 'application/x-www-form-urlencoded'
+                // }
+            })
+            .then((response)=>{
+                if(response.ok) {
+                    console.log('Success')
+                } else {
+                    alert('Error Encounterted')
+                }
+            })
+            .catch(error=> {
+                console.error(error)
+            })
+        })
+        
+    </script>
+</body>
+</html>

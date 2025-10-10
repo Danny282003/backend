@@ -1,0 +1,21 @@
+PHP 
+Python 
+C#
+Java
+Javascript(Node) 
+Ruby 
+Go 
+
+
+Local dependency - use it only in this particular project. We use *npm i <packageName>*
+
+While 
+
+Global dependency - use it in any project. We use *npm install -g <packageName>* OR *sudo npm install -g <packageName>*(This is for mac)
+
+
+
+
+TO CREATE A package.json file.
+The package.json file stores important information about your project.
+This can be created using npm init -y
