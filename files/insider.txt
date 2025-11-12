@@ -1,7 +1,0 @@
-PHP 
-Python 
-C#
-Java
-Javascript(Node) 
-Ruby 
-Go 

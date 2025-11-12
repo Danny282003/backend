@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const userSchema = mongoose.Schema({
     fullName:{
         type: String,
@@ -13,8 +14,14 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         require: true
+    },
+    role:{
+        type: String,
+        enum: ["user","admin"],
+        default: "user"
     }
 }, {timeStamps: true})
+
 
 const User = mongoose.model('user', userSchema)
 

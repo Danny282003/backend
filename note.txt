@@ -19,3 +19,27 @@ Global dependency - use it in any project. We use *npm install -g <packageName>*
 TO CREATE A package.json file.
 The package.json file stores important information about your project.
 This can be created using npm init -y
+
+
+Title, snippet and content.
+
+CRUD:
+    create,
+    Read,
+    Update,
+    Delete
+
+
+Relationship
+Authentication and authorization
+
+
+
+
+
+
+
+// Jotting
+
+import mongoose from 'mongoose'
+import 

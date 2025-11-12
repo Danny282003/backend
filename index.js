@@ -8,12 +8,20 @@ import multer from "multer"
 import crypto from "crypto"
 import mongoose from "mongoose"
 import { createUser } from "./controllers/userController.js"
+import router from "./router/routes.js"
+import postRouter from "./router/postRoutes.js"
+import cookieParser from "cookie-parser"
 
 app.use(express.json())
 app.use(express.urlencoded({
     extended: true
 }))
-
+app.use(cookieParser())
+app.use(cors({
+    origin: ["http://localhost:5173"],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}))
 mongoose.connect(process.env.MONGODB_URL)
 .then(()=>{
 app.listen(port, ()=>{
@@ -23,7 +31,13 @@ app.listen(port, ()=>{
 })
 .catch((err)=> console.log('Error while connecting to database', err))
 
-app.post('/api/user', createUser)
+app.use('/api/user', router)
+app.use('/api/post', postRouter)
+
+
+
+
+
 // const path = require('path')
 // const fs = require('fs')
 
